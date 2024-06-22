@@ -4,8 +4,8 @@
 #
 ################################################################################
 
-LIBRTLSDR_VERSION = ed0317e6a58c098874ac58b769cf2e609c18d9a5
-LIBRTLSDR_SITE = $(call github,steve-m,librtlsdr,$(LIBRTLSDR_VERSION))
+LIBRTLSDR_VERSION = 240bd0e1e6d9f64361b6949047468958cd08aa31
+LIBRTLSDR_SITE = $(call github,rtlsdrblog,rtl-sdr-blog,$(LIBRTLSDR_VERSION))
 LIBRTLSDR_LICENSE = GPL-2.0+
 LIBRTLSDR_LICENSE_FILES = COPYING
 LIBRTLSDR_INSTALL_STAGING = YES
