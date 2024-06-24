@@ -617,9 +617,17 @@ else
 	$(call raw2cimg ,rootfs_ext4.$(STORAGE_TYPE))
 endif	
 
+archlinux-rootfs-pack:
+	wget -nc "https://archriscv.felixc.at/images/archriscv-latest.tar.zst"
+	mkdir -p $(OUTPUT_DIR)/rootfs
+	tar -xf archriscv-latest.tar.zst -C $(OUTPUT_DIR)/rootfs
+	chmod +w -R $(OUTPUT_DIR)/rootfs/etc/ca-certificates/
+
 ifeq ($(CONFIG_BUILDROOT_FS),y)
 rootfs:br-rootfs-prepare
 rootfs:br-rootfs-pack
+else ifeq ($(CONFIG_ARCHLINUX_FS),y)
+rootfs: archlinux-rootfs-pack
 else
 rootfs:rootfs-pack
 rootfs:
